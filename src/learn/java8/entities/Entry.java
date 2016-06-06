@@ -1,5 +1,7 @@
 package learn.java8.entities;
 
+import learn.java8.entities.util.CalculationType;
+
 /**
  * Class Entry
  * <p>
@@ -16,7 +18,7 @@ public class Entry {
     /**
      * The title of the entry.
      */
-    private String title;
+    private CalculationType type;
 
     /**
      * The end value for the factorial.
@@ -37,12 +39,12 @@ public class Entry {
     /**
      * The full constructor.
      *
-     * @param title         The title of the entry.
+     * @param type          The type of calculation.
      * @param value         The end value for the factorial.
      * @param iterations    The number of iterations for calculation the average time was spent.
      */
-    public Entry(String title, Long value, Integer iterations) {
-        this.title = title;
+    public Entry(CalculationType type, Long value, Integer iterations) {
+        this.type = type;
         this.value = value;
         this.iterations = iterations;
     }
@@ -66,21 +68,21 @@ public class Entry {
     }
 
     /**
-     * Gets the title.
+     * Gets the type.
      *
-     * @return  The title.
+     * @return  The type.
      */
-    public String getTitle() {
-        return title;
+    public CalculationType getTitle() {
+        return type;
     }
 
     /**
-     * Sets the new title.
+     * Sets the new type.
      *
-     * @param title The new title.
+     * @param type The new type.
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(CalculationType type) {
+        this.type = type;
     }
 
     /**
@@ -128,7 +130,7 @@ public class Entry {
     public String toString() {
         return "Entry{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
+                ", title='" + type + '\'' +
                 ", value=" + value +
                 ", iterations=" + iterations +
                 '}';
@@ -148,7 +150,7 @@ public class Entry {
         Entry entry = (Entry) o;
 
         if (!id.equals(entry.id)) return false;
-        if (!title.equals(entry.title)) return false;
+        if (!type.equals(entry.type)) return false;
         if (!value.equals(entry.value)) return false;
         return iterations.equals(entry.iterations);
 
@@ -162,7 +164,7 @@ public class Entry {
     @Override
     public int hashCode() {
         int result = id.hashCode();
-        result = 31 * result + title.hashCode();
+        result = 31 * result + type.hashCode();
         result = 31 * result + value.hashCode();
         result = 31 * result + iterations.hashCode();
         return result;

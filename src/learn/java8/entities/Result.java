@@ -1,5 +1,7 @@
 package learn.java8.entities;
 
+import learn.java8.entities.util.CalculationType;
+
 import java.math.BigInteger;
 
 /**
@@ -19,6 +21,11 @@ public class Result {
      * The used entry.
      */
     private Entry entry;
+
+	/**
+	 * The used calculation type.
+	 */
+	private CalculationType type;
 
     /**
      * The result of calculation.
@@ -85,7 +92,25 @@ public class Result {
         this.entry = entry;
     }
 
-    /**
+	/**
+	 * Gets the calculation type.
+	 *
+	 * @return  The calculation type.
+	 */
+	public CalculationType getType() {
+		return type;
+	}
+
+	/**
+	 * Sets the new calculation type.
+	 *
+	 * @param type  The new type.
+	 */
+	public void setType(CalculationType type) {
+		this.type = type;
+	}
+
+	/**
      * Gets the result.
      *
      * @return  The result.
@@ -131,6 +156,7 @@ public class Result {
         return "Result{" +
                 "id=" + id +
                 ", entry=" + entry +
+		        ", type=" + type +
                 ", result=" + result +
                 ", spentTime=" + spentTime +
                 '}';
@@ -151,6 +177,7 @@ public class Result {
 
         if (!id.equals(result1.id)) return false;
         if (!entry.equals(result1.entry)) return false;
+	    if (!type.equals(result1.type)) return false;
         if (!result.equals(result1.result)) return false;
         return spentTime.equals(result1.spentTime);
 
@@ -165,6 +192,7 @@ public class Result {
     public int hashCode() {
         int result1 = id.hashCode();
         result1 = 31 * result1 + entry.hashCode();
+	    result1 = 31 * result1 + type.hashCode();
         result1 = 31 * result1 + result.hashCode();
         result1 = 31 * result1 + spentTime.hashCode();
         return result1;
