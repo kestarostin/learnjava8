@@ -2,7 +2,17 @@ package learn.java8.entities;
 
 import learn.java8.entities.util.CalculationType;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.math.BigInteger;
+import java.util.Date;
 
 /**
  * Class Result
@@ -10,6 +20,8 @@ import java.math.BigInteger;
  * Created by Starostin Konstantin
  * on 05.06.2016.
  */
+@Entity
+@Table(name = "RESULT")
 public class Result {
 
     /**
@@ -30,12 +42,17 @@ public class Result {
     /**
      * The result of calculation.
      */
-    private BigInteger result;
+    private BigInteger resultValue;
 
     /**
      * The average spent time value.
      */
     private Integer spentTime;
+
+	/**
+	 * The date of calculation
+	 */
+	private Date date;
 
     /**
      * The default constructor.
@@ -43,17 +60,21 @@ public class Result {
     public Result() {
     }
 
-    /**
-     * The full constructor.
-     *
-     * @param entry     The used entry.
-     * @param result    The result of calculation.
-     * @param spentTime The average spent time value.
-     */
-    public Result(Entry entry, BigInteger result, Integer spentTime) {
+	/**
+	 * The full constructor.
+	 *
+	 * @param entry         The used entry.
+	 * @param type          The type of calculation.
+	 * @param result        The result of calculation.
+	 * @param spentTime     The average spent time value.
+	 * @param date          The date of calculation.
+	 */
+    public Result(Entry entry, CalculationType type, BigInteger result, Integer spentTime, Date date) {
         this.entry = entry;
-        this.result = result;
+	    this.type = type;
+        this.resultValue = result;
         this.spentTime = spentTime;
+	    this.date = date;
     }
 
     /**
@@ -61,6 +82,9 @@ public class Result {
      *
      * @return  The id.
      */
+    @Id
+    @Column(name = "RES_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -79,6 +103,8 @@ public class Result {
      *
      * @return  The entry.
      */
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "ENTR_ID", nullable = false)
     public Entry getEntry() {
         return entry;
     }
@@ -97,6 +123,7 @@ public class Result {
 	 *
 	 * @return  The calculation type.
 	 */
+	@Column(name = "RES_CALC_TYPE")
 	public CalculationType getType() {
 		return type;
 	}
@@ -115,17 +142,18 @@ public class Result {
      *
      * @return  The result.
      */
-    public BigInteger getResult() {
-        return result;
+	@Column(name = "RES_VALUE")
+    public BigInteger getResultValue() {
+        return resultValue;
     }
 
     /**
      * Sets the new result.
      *
-     * @param result    The new result.
+     * @param resultValue    The new result.
      */
-    public void setResult(BigInteger result) {
-        this.result = result;
+    public void setResultValue(BigInteger resultValue) {
+        this.resultValue = resultValue;
     }
 
     /**
@@ -133,6 +161,7 @@ public class Result {
      *
      * @return  The spent time.
      */
+    @Column(name = "RES_DATE")
     public Integer getSpentTime() {
         return spentTime;
     }
@@ -146,7 +175,25 @@ public class Result {
         this.spentTime = spentTime;
     }
 
-    /**
+	/**
+	 * Gets the date of calculation
+	 *
+	 * @return  The date.
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * Sets the new date.
+	 *
+	 * @param date  The new date.
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/**
      * To string
      *
      * @return  The string.
@@ -157,8 +204,9 @@ public class Result {
                 "id=" + id +
                 ", entry=" + entry +
 		        ", type=" + type +
-                ", result=" + result +
+                ", resultValue=" + resultValue +
                 ", spentTime=" + spentTime +
+		        ", date=" + date +
                 '}';
     }
 
@@ -166,7 +214,7 @@ public class Result {
      * The equals realization.
      *
      * @param o The object.
-     * @return  The boolean result.
+     * @return  The boolean resultValue.
      */
     @Override
     public boolean equals(Object o) {
@@ -178,7 +226,8 @@ public class Result {
         if (!id.equals(result1.id)) return false;
         if (!entry.equals(result1.entry)) return false;
 	    if (!type.equals(result1.type)) return false;
-        if (!result.equals(result1.result)) return false;
+        if (!resultValue.equals(result1.resultValue)) return false;
+	    if (!date.equals(result1.date)) return false;
         return spentTime.equals(result1.spentTime);
 
     }
@@ -186,15 +235,16 @@ public class Result {
     /**
      * The hash code realization.
      *
-     * @return  The result.
+     * @return  The resultValue.
      */
     @Override
     public int hashCode() {
         int result1 = id.hashCode();
         result1 = 31 * result1 + entry.hashCode();
 	    result1 = 31 * result1 + type.hashCode();
-        result1 = 31 * result1 + result.hashCode();
+        result1 = 31 * result1 + resultValue.hashCode();
         result1 = 31 * result1 + spentTime.hashCode();
+	    result1 = 31 * result1 + date.hashCode();
         return result1;
     }
 }

@@ -2,12 +2,21 @@ package learn.java8.entities;
 
 import learn.java8.entities.util.CalculationType;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Class Entry
  * <p>
  * Created by Starostin Konstantin
  * on 05.06.2016.
  */
+@Entity
+@Table(name = "ENTRY")
 public class Entry {
 
     /**
@@ -54,6 +63,9 @@ public class Entry {
      *
      * @return  The id.
      */
+    @Id
+    @Column(name = "ENTR_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -72,6 +84,7 @@ public class Entry {
      *
      * @return  The type.
      */
+    @Column(name = "ENTR_CALC_TYPE")
     public CalculationType getTitle() {
         return type;
     }
@@ -90,6 +103,7 @@ public class Entry {
      *
      * @return  The value.
      */
+    @Column(name = "ENTR_VALUE")
     public Long getValue() {
         return value;
     }
@@ -108,6 +122,7 @@ public class Entry {
      *
      * @return  The number of iterations.
      */
+    @Column(name = "ENTR_ITER")
     public Integer getIterations() {
         return iterations;
     }
