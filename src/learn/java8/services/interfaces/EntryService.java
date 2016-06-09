@@ -20,7 +20,7 @@ public interface EntryService {
 	 * @return      The created entry.
 	 * @throws OopsException
 	 */
-	public Entry createEntry(Entry entry) throws OopsException;
+	Entry createEntry(Entry entry) throws OopsException;
 
 	/**
 	 * Loads entry by id.
@@ -29,7 +29,7 @@ public interface EntryService {
 	 * @return      The found entry.
 	 * @throws OopsException
 	 */
-	public Entry loadEntry(Long id) throws OopsException;
+	Entry loadEntry(Long id) throws OopsException;
 
 	/**
 	 * Updates the entry.
@@ -38,12 +38,12 @@ public interface EntryService {
 	 * @return      The updated entry.
 	 * @throws OopsException
 	 */
-	public Entry updateEntry(Entry entry) throws OopsException;
+	Entry updateEntry(Entry entry) throws OopsException;
 
 	/**
 	 * Deletes the entry.
 	 *
 	 * @param entry The entry.
 	 */
-	public void deleteEntry(Entry entry);
+	void deleteEntry(Entry entry);
 }

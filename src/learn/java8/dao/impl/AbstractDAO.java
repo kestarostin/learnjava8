@@ -20,7 +20,7 @@ public abstract class AbstractDAO<T> {
 	private final Class<T> type;
 
 	/**
-	 * The persistance context.
+	 * The persistence context.
 	 */
 	@PersistenceContext
 	private EntityManager em;
@@ -62,7 +62,7 @@ public abstract class AbstractDAO<T> {
 	 */
 	public T update(T t) {
 		return em.merge(t);
-	};
+	}
 
 	/**
 	 * Deletes the object.
@@ -71,5 +71,5 @@ public abstract class AbstractDAO<T> {
 	 */
 	public void delete(T t) {
 		em.remove(t);
-	};
+	}
 }

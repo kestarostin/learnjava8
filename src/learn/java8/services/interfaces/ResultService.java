@@ -20,7 +20,7 @@ public interface ResultService {
 	 * @return          The created result.
 	 * @throws OopsException
 	 */
-	public Result createResult(Result result) throws OopsException;
+	Result createResult(Result result) throws OopsException;
 
 	/**
 	 * Loads the result by id.
@@ -29,7 +29,7 @@ public interface ResultService {
 	 * @return      The found result.
 	 * @throws OopsException
 	 */
-	public Result loadResult(Long id) throws OopsException;
+	Result loadResult(Long id) throws OopsException;
 
 	/**
 	 * Updates the result.
@@ -38,12 +38,12 @@ public interface ResultService {
 	 * @return          The updated result.
 	 * @throws OopsException
 	 */
-	public Result updateResult(Result result) throws OopsException;
+	Result updateResult(Result result) throws OopsException;
 
 	/**
 	 * Deletes the result.
 	 *
 	 * @param result    The result.
 	 */
-	public void deleteResult(Result result);
+	void deleteResult(Result result);
 }
