@@ -2,3 +2,4 @@
 .idea/*
 learnjava8.iml
 src/resources/cfg/local.db.properties
+out
