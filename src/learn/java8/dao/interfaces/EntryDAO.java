@@ -2,6 +2,8 @@ package learn.java8.dao.interfaces;
 
 import learn.java8.entities.Entry;
 
+import java.util.List;
+
 /**
  * Class EntryDAO
  * <p>
@@ -42,4 +44,16 @@ public interface EntryDAO {
 	 * @param entry    The entry.
 	 */
 	void delete(Entry entry);
+
+	/**
+	 * Gets all entries.
+	 *
+	 * @return	The list ef entries.
+	 */
+	List<Entry> getAllEntries();
+
+    /**
+     * Deletes all entries.
+     */
+    void deleteAllEntries();
 }

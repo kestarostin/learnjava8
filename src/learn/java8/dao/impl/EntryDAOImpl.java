@@ -4,6 +4,10 @@ import learn.java8.dao.interfaces.EntryDAO;
 import learn.java8.entities.Entry;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+
 /**
  * Class EntryDAOImpl
  * <p>
@@ -14,4 +18,20 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("entryDao")
 public class EntryDAOImpl extends AbstractDAO<Entry> implements EntryDAO {
+
+    /**
+     * Gets all entries.
+     *
+     * @return	The list ef entries.
+     */
+    public List<Entry> getAllEntries() {
+        return em.createNamedQuery("Entry.getAllEntries").getResultList();
+    }
+
+    /**
+     * Deletes all entries.
+     */
+    public void deleteAllEntries() {
+        em.createNamedQuery("Entry.deleteAllEntries");
+    }
 }

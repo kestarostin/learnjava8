@@ -2,12 +2,7 @@ package learn.java8.entities;
 
 import learn.java8.entities.util.CalculationType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Class Entry
@@ -17,6 +12,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ENTRY")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Entry.getAllEntries", query = "SELECT entry FROM Entry entry"),
+                @NamedQuery(name = "Entry.deleteAllEntries", query = "DELETE FROM Entry")
+        })
 public class Entry {
 
     /**
@@ -30,7 +30,7 @@ public class Entry {
     private CalculationType type;
 
     /**
-     * The end value for the factorial.
+     * The value.
      */
     private Long value;
 

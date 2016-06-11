@@ -3,6 +3,7 @@ package learn.java8.dao.impl;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 /**
  * Class AbstractDAO
@@ -20,10 +21,10 @@ public abstract class AbstractDAO<T> {
 	private final Class<T> type;
 
 	/**
-	 * The persistence context.
+	 * The entity manager.
 	 */
 	@PersistenceContext
-	private EntityManager em;
+	protected EntityManager em;
 
 	/**
 	 * The constructor.

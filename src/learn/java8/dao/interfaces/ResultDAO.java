@@ -2,6 +2,8 @@ package learn.java8.dao.interfaces;
 
 import learn.java8.entities.Result;
 
+import java.util.List;
+
 /**
  * Class ResultDAO
  * <p>
@@ -42,4 +44,16 @@ public interface ResultDAO {
 	 * @param result    The result.
 	 */
 	void delete(Result result);
+
+	/**
+	 * Gets all results.
+	 *
+	 * @return	The list of results.
+	 */
+	List<Result> getAllResults();
+
+    /**
+     * Deletes all results.
+     */
+    void deleteAllResults();
 }

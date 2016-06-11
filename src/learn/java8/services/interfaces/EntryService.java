@@ -3,6 +3,8 @@ package learn.java8.services.interfaces;
 import learn.java8.entities.Entry;
 import learn.java8.util.OopsException;
 
+import java.util.List;
+
 /**
  * Class EntryService
  * <p>
@@ -46,4 +48,16 @@ public interface EntryService {
 	 * @param entry The entry.
 	 */
 	void deleteEntry(Entry entry);
+
+	/**
+	 * Gets the list of all entries.
+	 *
+	 * @return	The list of entries.
+	 */
+	List<Entry> getAllEntries() throws OopsException;
+
+    /**
+     * Deletes all entries.
+     */
+    void deleteAllEntries();
 }

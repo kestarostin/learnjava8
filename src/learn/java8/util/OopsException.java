@@ -15,6 +15,16 @@ public class OopsException extends Exception {
 	 */
 	private String message;
 
+    /**
+     * The "." constant.
+     */
+    private final String DOT = ".";
+
+    /**
+     * The "Oops ..." constant.
+     */
+    private final String OOPS = " Oops...";
+
 	/**
 	 * The parent exception.
 	 */
@@ -53,10 +63,10 @@ public class OopsException extends Exception {
 
 	private String addOops(String message) {
 		StringBuilder newMessage = new StringBuilder(message);
-		if (!message.endsWith(".")) {
-			newMessage.append(".");
+		if (!message.endsWith(DOT)) {
+			newMessage.append(DOT);
 		}
-		newMessage.append(" Oops...");
+		newMessage.append(OOPS);
 		return newMessage.toString();
 	}
 }

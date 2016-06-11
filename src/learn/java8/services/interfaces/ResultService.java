@@ -3,6 +3,8 @@ package learn.java8.services.interfaces;
 import learn.java8.entities.Result;
 import learn.java8.util.OopsException;
 
+import java.util.List;
+
 /**
  * Class ResultService
  * <p>
@@ -46,4 +48,16 @@ public interface ResultService {
 	 * @param result    The result.
 	 */
 	void deleteResult(Result result);
+
+	/**
+	 * Gets the list of all results.
+	 *
+	 * @return	The list of results.
+	 */
+	List<Result> getAllResults() throws OopsException;
+
+    /**
+     * Deletes all results.
+     */
+    void deleteAllResults();
 }
