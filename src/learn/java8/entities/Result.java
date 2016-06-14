@@ -1,6 +1,7 @@
 package learn.java8.entities;
 
 import learn.java8.entities.util.CalculationType;
+import learn.java8.util.StringUtils;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -61,14 +62,13 @@ public class Result {
 	 * The full constructor.
 	 *
 	 * @param entry         The used entry.
-	 * @param type          The type of calculation.
 	 * @param result        The result of calculation.
 	 * @param spentTime     The average spent time value.
 	 * @param date          The date of calculation.
 	 */
-    public Result(Entry entry, CalculationType type, BigInteger result, Integer spentTime, Date date) {
+    public Result(Entry entry, BigInteger result, Integer spentTime, Date date) {
         this.entry = entry;
-	    this.type = type;
+	    this.type = entry.getType();
         this.resultValue = result;
         this.spentTime = spentTime;
 	    this.date = date;
@@ -197,14 +197,13 @@ public class Result {
      */
     @Override
     public String toString() {
-        return "Result{" +
-                "id=" + id +
-                ", entry=" + entry +
-		        ", type=" + type +
-                ", resultValue=" + resultValue +
-                ", spentTime=" + spentTime +
-		        ", date=" + date +
-                '}';
+	    return new StringBuffer(StringUtils.BIG_DELIMITER_ABOVE)
+			    .append("ID: ").append("\t\t\t\t\t\t").append(id).append("\n")
+			    .append("The type: ").append("\t\t\t\t\t").append(type).append("\n")
+			    .append("The result value: ").append("\t\t\t").append(resultValue).append("\n")
+			    .append("The average spent time: ").append("\t").append(spentTime).append(" seconds").append("\n")
+			    .append("The date of calculation: ").append("\t").append(date)
+			    .append(StringUtils.BIG_DELIMITER_BELOW).toString();
     }
 
     /**

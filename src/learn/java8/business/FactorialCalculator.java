@@ -1,5 +1,7 @@
 package learn.java8.business;
 
+import learn.java8.entities.Entry;
+import learn.java8.entities.util.CalculationType;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -22,12 +24,17 @@ public class FactorialCalculator {
     /**
      * The value.
      */
-    private Integer value;
+    private Long value;
 
     /**
      * The number of iterations to get the average.
      */
     private Integer iterations;
+
+	/**
+	 * The type of factorial calculation.
+	 */
+	private CalculationType calculationType;
 
     /**
      * The result.
@@ -39,58 +46,90 @@ public class FactorialCalculator {
      */
     private Integer time;
 
+	/**
+	 * The flag shows that calculation done.
+	 */
+	private boolean isCalculated = false;
+
     /**
      * The constructor
      *
-     * @param value         The value.
-     * @param iterations    The number of iterations.
+     * @param entry The entry
      */
-    public FactorialCalculator(Integer value, Integer iterations) {
-        this.value = value;
-        this.iterations = iterations;
+    public FactorialCalculator(Entry entry) {
+	    this.isCalculated = false;
+        this.value = entry.getValue();
+        this.iterations = entry.getIterations();
+	    this.calculationType = entry.getType();
     }
 
     /**
      * Calculates the factorial.
      */
     public void calculate() {
-        int[] times = new int[iterations];
         int spentTime = 0;
 
         for (int i = 0; i < iterations; i++) {
             LOG.info("Iteration: " + (i + 1));
-            times[i] = doFactorial(value);
-            spentTime = times[i];
+
+	        long startTime = new Date().getTime();
+	        long endTime;
+
+	        LOG.debug("Start: " + startTime + " seconds.");
+
+	        doFactorial(value, calculationType);
+
+	        endTime = new Date().getTime();
+	        spentTime = (int ) (endTime - startTime);
+
+			LOG.debug("End: " + endTime + " seconds.");
+	        LOG.debug("Factorial " + value + " result: " + result);
+	        LOG.debug("Time spent " + spentTime + " seconds.");
         }
         time = spentTime / iterations;
+	    isCalculated = true;
     }
 
+	/**
+	 * Calculates the factorial.
+	 *
+	 * @param value The end of the factorial.
+	 */
+	private void doFactorial(Long value, CalculationType type) {
+		switch (type) {
+			case FACTORIAL:
+				doFactorialWithOldJava(value);
+				break;
+			case FACTORIAL_8:
+				doFactorialWithJava8(value);
+				break;
+			default:
+				break;
+		}
+	}
+
     /**
-     * Calculates the factorial.
+     * Calculates the factorial using the common multiplication in the "for each" cycle.
      *
      * @param value The end of the factorial.
      */
-    private int doFactorial(int value) {
-        long startTime = new Date().getTime();
-        long endTime;
-        int spentTime;
-
-        LOG.info("Start: " + startTime + " seconds.");
-
+    private void doFactorialWithOldJava(long value) {
         BigInteger r = BigInteger.valueOf(1);
         for (int i = 2; i <= value; ++i) {
             r = r.multiply(BigInteger.valueOf(i));
         }
         result = r;
-        endTime = new Date().getTime();
-        spentTime = (int ) (endTime - startTime);
-
-        LOG.info("End: " + endTime + " seconds.");
-        LOG.info("Factorial " + value + " result: " + result);
-        LOG.info("Time spent " + spentTime + " seconds.");
-
-        return spentTime;
     }
+
+	/**
+	 * Calculates the factorial using the common multiplication in the "for each" cycle.
+	 *
+	 * @param value The end of the factorial.
+	 */
+	private int doFactorialWithJava8(long value) {
+		// The stub
+		return 0;
+	}
 
     /**
      * Gets the result of calculation.
@@ -98,7 +137,7 @@ public class FactorialCalculator {
      * @return  The result.
      */
     public BigInteger getResult() {
-        return result;
+        return isCalculated ? result : null;
     }
 
     /**
@@ -107,6 +146,6 @@ public class FactorialCalculator {
      * @return  The time.
      */
     public Integer getTime() {
-        return time;
+        return isCalculated ? time : null;
     }
 }

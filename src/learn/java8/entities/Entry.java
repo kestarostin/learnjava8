@@ -1,6 +1,7 @@
 package learn.java8.entities;
 
 import learn.java8.entities.util.CalculationType;
+import learn.java8.util.StringUtils;
 
 import javax.persistence.*;
 
@@ -85,7 +86,7 @@ public class Entry {
      * @return  The type.
      */
     @Column(name = "ENTR_CALC_TYPE")
-    public CalculationType getTitle() {
+    public CalculationType getType() {
         return type;
     }
 
@@ -94,7 +95,7 @@ public class Entry {
      *
      * @param type The new type.
      */
-    public void setTitle(CalculationType type) {
+    public void setType(CalculationType type) {
         this.type = type;
     }
 
@@ -143,12 +144,12 @@ public class Entry {
      */
     @Override
     public String toString() {
-        return "Entry{" +
-                "id=" + id +
-                ", title='" + type + '\'' +
-                ", value=" + value +
-                ", iterations=" + iterations +
-                '}';
+	    return new StringBuffer(StringUtils.BIG_DELIMITER_ABOVE)
+			    .append("ID: ").append("\t\t\t\t\t\t").append(id).append("\n")
+			    .append("The type: ").append("\t\t\t\t\t").append(type).append("\n")
+			    .append("The value: ").append("\t\t\t\t\t").append(value).append("\n")
+			    .append("The number of iterations: ").append("\t").append(iterations)
+			    .append(StringUtils.BIG_DELIMITER_BELOW).toString();
     }
 
     /**

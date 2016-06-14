@@ -9,7 +9,8 @@ package learn.java8.entities.util;
  * @author Starostin Konstantin
  */
 public enum CalculationType {
-	FACTORIAL("factorial");
+	FACTORIAL("Common factorial"),
+	FACTORIAL_8("Factorial on Java 8");
 
 	String type;
 
