@@ -201,7 +201,7 @@ public class Result {
 			    .append("ID: ").append("\t\t\t\t\t\t").append(id).append("\n")
 			    .append("The type: ").append("\t\t\t\t\t").append(type).append("\n")
 			    .append("The result value: ").append("\t\t\t").append(resultValue).append("\n")
-			    .append("The average spent time: ").append("\t").append(spentTime).append(" seconds").append("\n")
+			    .append("The average spent time: ").append("\t").append(spentTime).append(" milliseconds").append("\n")
 			    .append("The date of calculation: ").append("\t").append(date)
 			    .append(StringUtils.BIG_DELIMITER_BELOW).toString();
     }

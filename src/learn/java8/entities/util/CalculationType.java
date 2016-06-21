@@ -10,7 +10,11 @@ package learn.java8.entities.util;
  */
 public enum CalculationType {
 	FACTORIAL("Common factorial"),
-	FACTORIAL_8("Factorial on Java 8");
+	FACTORIAL_STREAM("Factorial with streams"),
+	FACTORIAL_PARALLEL_STREAM("Factorial with parallel streams"),
+	SORTER("Common sorter"),
+	SORTER_STREAM("Sorting with streams"),
+	SORTER_PARALLEL_STREAM("Sorting with parallel streams");
 
 	String type;
 
