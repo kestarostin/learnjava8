@@ -49,6 +49,7 @@ public class OopsException extends Exception {
 	public OopsException(String message, Throwable e) {
 		super(message, e);
 		this.message = addOops(message);
+		this.parentException = e;
 	}
 
 	/**
