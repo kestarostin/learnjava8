@@ -24,8 +24,8 @@ public class Main {
 	    LambdaExplorer.printCollectionElementsWithLambda();
 	    // Using lambda expression without type declaration
 	    LambdaExplorer.printCollectionElementsWithLambdaWithoutType();
-	    // Using lambda expression with double colon operator
-	    LambdaExplorer.printCollectionElementsWithLambdaShortest();
+	    // Using lambda expression with method reference (double colon operator)
+	    LambdaExplorer.printCollectionElementsWithLambdaMethodReference();
 
 	    /**
 	     * Sorting
@@ -43,5 +43,20 @@ public class Main {
 	     * Runnable as functional interface
 	     */
 	    LambdaExplorer.implementRunnable();
+
+	    /**
+	     * Method reference
+	     */
+	    // Using lambda expression with method reference to another method of this class
+	    LambdaExplorer.printCollectionElementsWithLambdaThis();
+	    // Using lambda expression with method reference to the superclass method
+	    LambdaExplorer.printCollectionElementsWithLambdaSuper();
+
+	    /**
+	     * Lambda expression with final external variables
+	     */
+	    LambdaExplorer.printCollectionElementsWithLambdaExternalVariables();
+
+
     }
 }

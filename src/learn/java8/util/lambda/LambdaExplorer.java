@@ -59,8 +59,8 @@ public class LambdaExplorer {
 	/**
 	 * Prints elements of collection using lambda expressions (shortest variant).
 	 */
-	public static void printCollectionElementsWithLambdaShortest() {
-		System.out.println("Printing with lambda expressions (shortest):");
+	public static void printCollectionElementsWithLambdaMethodReference() {
+		System.out.println("Printing with lambda expressions using method reference:");
 		INTEGER_NUMBERS.forEach(System.out::println);
 	}
 
@@ -103,7 +103,7 @@ public class LambdaExplorer {
 		// Initialization
 		STRING_NUMBERS = Arrays.asList(STRING_NUMBERS_ARRAY);
 		// Sorting
-		STRING_NUMBERS.sort((String firstStr, String secondStr) -> Integer.compare(firstStr.length(),secondStr.length()));
+		STRING_NUMBERS.sort((String firstStr, String secondStr) -> Integer.compare(firstStr.length(), secondStr.length()));
 		// Printing
 		System.out.println(STRING_NUMBERS);
 	}
@@ -134,7 +134,7 @@ public class LambdaExplorer {
 	 */
 	public static void implementRunnable() {
 		Runnable sleepingRunner = () -> {
-			System.out.println("Implementation of the interface Runnable as lambda expression");
+			System.out.println("Implementation of the interface Runnable as lambda expression\n...");
 			//Thread.sleep(1000);   - Wrong!
 			try {
 				Thread.sleep(1000);
@@ -144,6 +144,33 @@ public class LambdaExplorer {
 		};
 		Thread t = new Thread(sleepingRunner);
 		t.start();
+	}
+
+	/**
+	 * Prints elements using super and this as methods references.
+	 */
+	public static void printCollectionElementsWithLambdaThis() {
+		System.out.println("Printing with lambda expression using method reference to another method of this class:");
+		AnotherPrinter anotherPrinter = new AnotherPrinter();
+		anotherPrinter.printAgain();
+	}
+
+	/**
+	 * Prints elements using super and this as methods references.
+	 */
+	public static void printCollectionElementsWithLambdaSuper() {
+		System.out.println("Printing with lambda expression using method reference to the superclass method:");
+		AnotherPrinter anotherPrinter = new AnotherPrinter();
+		anotherPrinter.print();
+	}
+
+	/**
+	 * Prints elements using final external variables for the lambda expression.
+	 */
+	public static void printCollectionElementsWithLambdaExternalVariables() {
+		System.out.println("Printing with lambda expression using final external variables for the lambda expression:");
+		AnotherPrinter anotherPrinter = new AnotherPrinter();
+		anotherPrinter.print(INTEGER_NUMBERS, INTEGER_NUMBERS.size());
 	}
 
 	/**
@@ -162,5 +189,94 @@ public class LambdaExplorer {
 		public int compare(String firstStr, String secondStr) {
 			return Integer.compare(firstStr.length(), secondStr.length());
 		}
+	}
+
+	/**
+	 * The local inner class Printer.
+	 */
+	private static class Printer implements First, Second, Third {
+
+		/**
+		 * Prints the collection of elements.
+		 */
+		@Override
+		public void print() {
+			//INTEGER_NUMBERS.forEach(System.out::println);
+			First.super.print();
+		}
+	}
+
+	/**
+	 * The local inner class NewPrinter.
+	 */
+	private static class AnotherPrinter extends Printer {
+
+		/**
+		 * Prints the collection of elements using method reference on the superclass.
+		 */
+		@Override
+		public void print() {
+			new Thread(super::print).start();
+		}
+
+		/**
+		 * Prints the collection of elements using method reference on another method of this class.
+		 */
+		public void printAgain() {
+			new Thread(this::print).start();
+		}
+
+		/**
+		 * Prints elements of the list.
+		 *
+		 * @param list  The list for printing. Shouldn't be changed for thread safety!
+		 * @param count The size of the list. Shouldn't be changed for thread safety!
+		 */
+		public void print(final List<Integer> list, final int count) {
+			Runnable r = () -> {
+				for (int i = 0; i < count; i++) {
+					System.out.println(list.get(i));
+					Thread.yield();
+				}
+			};
+			new Thread(r).start();
+		}
+	}
+
+	/**
+	 * Interface First. Provides default method print().
+	 */
+	interface First {
+
+		/**
+		 * Prints the array list.
+		 */
+		default void print() {
+			INTEGER_NUMBERS.forEach(System.out::println);
+		}
+	}
+
+	/**
+	 * Interface Second. Provides default method print().
+	 */
+	interface Second {
+
+		/**
+		 * Prints only first element of the array list.
+		 */
+		default void print() {
+			System.out.println(INTEGER_NUMBERS.get(0));
+		}
+	}
+
+	/**
+	 * Interface Second. Doesn't provide any default methods.
+	 */
+	interface Third {
+
+		/**
+		 * Prints something.
+		 */
+		void print();
 	}
 }
