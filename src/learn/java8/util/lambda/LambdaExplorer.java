@@ -54,10 +54,12 @@ public class LambdaExplorer {
 	public static void printCollectionElementsWithLambdaWithoutType() {
 		System.out.println("Printing with lambda expressions and without type declaration:");
 		INTEGER_NUMBERS.forEach(number -> System.out.println(number));
+		//Consumer<Integer> c = number -> System.out.println(number);
+		//INTEGER_NUMBERS.forEach(c);
 	}
 
 	/**
-	 * Prints elements of collection using lambda expressions (shortest variant).
+	 * Prints elements of collection using lambda expressions (method reference).
 	 */
 	public static void printCollectionElementsWithLambdaMethodReference() {
 		System.out.println("Printing with lambda expressions using method reference:");
@@ -147,7 +149,7 @@ public class LambdaExplorer {
 	}
 
 	/**
-	 * Prints elements using super and this as methods references.
+	 * Prints elements using this as method reference.
 	 */
 	public static void printCollectionElementsWithLambdaThis() {
 		System.out.println("Printing with lambda expression using method reference to another method of this class:");
@@ -156,7 +158,7 @@ public class LambdaExplorer {
 	}
 
 	/**
-	 * Prints elements using super and this as methods references.
+	 * Prints elements using super as method reference.
 	 */
 	public static void printCollectionElementsWithLambdaSuper() {
 		System.out.println("Printing with lambda expression using method reference to the superclass method:");

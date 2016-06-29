@@ -1,7 +1,5 @@
 package learn.java8.main;
 
-import learn.java8.util.lambda.LambdaExplorer;
-
 /**
  * Class Main
  * <p>
@@ -10,53 +8,48 @@ import learn.java8.util.lambda.LambdaExplorer;
  */
 public class Main {
 
-    /*private static ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"Spring-Datasource.xml"});
-    private static EntryService entryService = (EntryService) context.getBean("entryService");*/
-
     public static void main(String[] args) {
 
 	    /**
 	     * Printing
 	     */
 	    // Common printing
-	    LambdaExplorer.printCollectionElements();
+	    //LambdaExplorer.printCollectionElements();
 	    // Using lambda expression
-	    LambdaExplorer.printCollectionElementsWithLambda();
+	    //LambdaExplorer.printCollectionElementsWithLambda();
 	    // Using lambda expression without type declaration
-	    LambdaExplorer.printCollectionElementsWithLambdaWithoutType();
+	    //LambdaExplorer.printCollectionElementsWithLambdaWithoutType();
 	    // Using lambda expression with method reference (double colon operator)
-	    LambdaExplorer.printCollectionElementsWithLambdaMethodReference();
+	    //LambdaExplorer.printCollectionElementsWithLambdaMethodReference();
 
 	    /**
 	     * Sorting
 	     */
 	    // Common sorting with the class Comparator implementation
-	    LambdaExplorer.sortCollectionElements();
+	    //LambdaExplorer.sortCollectionElements();
 	    // Common sorting with the anonymous class Comparator implementation
-	    LambdaExplorer.sortCollectionElementsWithAnonymousClass();
+	    //LambdaExplorer.sortCollectionElementsWithAnonymousClass();
 	    // Sorting with the lambda expressions
-	    LambdaExplorer.sortCollectionElementsWithLambda();
+	    //LambdaExplorer.sortCollectionElementsWithLambda();
 		// Sorting with the lambda expressions and complex expression inside
-	    LambdaExplorer.sortCollectionElementsWithLambdaComplexExpression();
+	    //LambdaExplorer.sortCollectionElementsWithLambdaComplexExpression();
 
 	    /**
 	     * Runnable as functional interface
 	     */
-	    LambdaExplorer.implementRunnable();
+	    //LambdaExplorer.implementRunnable();
 
 	    /**
 	     * Method reference
 	     */
 	    // Using lambda expression with method reference to another method of this class
-	    LambdaExplorer.printCollectionElementsWithLambdaThis();
+	    //LambdaExplorer.printCollectionElementsWithLambdaThis();
 	    // Using lambda expression with method reference to the superclass method
-	    LambdaExplorer.printCollectionElementsWithLambdaSuper();
+	    //LambdaExplorer.printCollectionElementsWithLambdaSuper();
 
 	    /**
 	     * Lambda expression with final external variables
 	     */
-	    LambdaExplorer.printCollectionElementsWithLambdaExternalVariables();
-
-
+	    //LambdaExplorer.printCollectionElementsWithLambdaExternalVariables();
     }
 }
