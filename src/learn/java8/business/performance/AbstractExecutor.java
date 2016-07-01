@@ -69,7 +69,7 @@ public abstract class AbstractExecutor {
 		warmingUp(calculationType);
 
 		for (int i = 1; i < iterations + 1; i++) {
-			LOG.info("Iteration: " + i);
+			LOG.debug("Iteration: " + i);
 
 			long startTime = new Date().getTime();
 			long endTime;
@@ -96,7 +96,7 @@ public abstract class AbstractExecutor {
 	 */
 	private void warmingUp(CalculationType type) {
 		for (int i = 0; i < 5; i++) {
-			LOG.info("!!!Warming up!!!");
+			LOG.debug("!!!Warming up!!!");
 			doExecution(1000L, type);
 		}
 	}
