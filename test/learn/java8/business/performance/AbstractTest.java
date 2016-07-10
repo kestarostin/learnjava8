@@ -32,7 +32,7 @@ public class AbstractTest {
 	 */
 	@Before
 	public void before() {
-		entry = new Entry(null, 5000000L, 30);
+		entry = new Entry(null, 5000000L, 20);
 	}
 
 	/**

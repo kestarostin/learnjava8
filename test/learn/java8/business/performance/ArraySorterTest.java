@@ -1,7 +1,9 @@
 package learn.java8.business.performance;
 
 import learn.java8.entities.util.CalculationType;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 /**
  * Class ArraySorterTest
@@ -11,6 +13,7 @@ import org.junit.Test;
  *
  * @author Starostin Konstantin
  */
+@FixMethodOrder(MethodSorters.JVM)
 public class ArraySorterTest extends AbstractTest {
 
 	/**
