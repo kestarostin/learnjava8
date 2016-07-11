@@ -83,10 +83,19 @@ public class ArraySorter extends AbstractExecutor {
 	 */
 	private void doStreamedSort(long size) {
 		// Initialization
-		List<Long> list = Arrays.stream(new Random().longs(size, Long.MIN_VALUE, Long.MAX_VALUE).toArray()).boxed().collect(Collectors.toList());
+		List<Long> list = Arrays.stream(new Random()
+				.longs(size, Long.MIN_VALUE, Long.MAX_VALUE)
+				.toArray())
+				.boxed()
+				.collect(Collectors.toList());
 
 		// Sorting and the average
-		result = BigInteger.valueOf((long) list.stream().sorted().mapToLong((l) -> (l)).average().getAsDouble());
+		result = BigInteger.valueOf((long) list
+				.stream()
+				.sorted()
+				.mapToLong((l) -> (l))
+				.average()
+				.getAsDouble());
 	}
 
 	/**
@@ -96,10 +105,20 @@ public class ArraySorter extends AbstractExecutor {
 	 */
 	private void doParallelStreamedSort(long size) {
 		// Initialization
-		List<Long> list = Arrays.stream(new Random().longs(size, Long.MIN_VALUE, Long.MAX_VALUE).toArray()).boxed().collect(Collectors.toList());
+		List<Long> list = Arrays.stream(new Random()
+				.longs(size, Long.MIN_VALUE, Long.MAX_VALUE)
+				.toArray())
+				.boxed()
+				.collect(Collectors.toList());
 
 		// Sorting and the average
-		result = BigInteger.valueOf((long) list.stream().parallel().sorted().mapToLong((l) -> (l)).average().getAsDouble());
+		result = BigInteger.valueOf((long) list
+				.stream()
+				.parallel()
+				.sorted()
+				.mapToLong((l) -> (l))
+				.average()
+				.getAsDouble());
 	}
 
 	/**
@@ -108,6 +127,11 @@ public class ArraySorter extends AbstractExecutor {
 	 * @param size  The initial size of the array.
 	 */
 	private void doParallelStreamedSortInLine(long size) {
-		result = BigInteger.valueOf((long) new Random().longs(size, Long.MIN_VALUE, Long.MAX_VALUE).parallel().sorted().average().getAsDouble());
+		result = BigInteger.valueOf((long) new Random()
+				.longs(size, Long.MIN_VALUE, Long.MAX_VALUE)
+				.parallel()
+				.sorted()
+				.average()
+				.getAsDouble());
 	}
 }

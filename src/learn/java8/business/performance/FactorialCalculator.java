@@ -68,7 +68,10 @@ public class FactorialCalculator extends AbstractExecutor {
 		if(value == 1) {
 			result = r;
 		} else {
-			result = IntStream.rangeClosed(2, (int) value).mapToObj(BigInteger::valueOf).reduce(BigInteger::multiply).get();
+			result = IntStream.rangeClosed(2, (int) value)
+					.mapToObj(BigInteger::valueOf)
+					.reduce(BigInteger::multiply)
+					.get();
 		}
 	}
 
@@ -82,7 +85,11 @@ public class FactorialCalculator extends AbstractExecutor {
 		if(value == 1) {
 			result = r;
 		} else {
-			result = IntStream.rangeClosed(2, (int) value).parallel().mapToObj(BigInteger::valueOf).reduce(BigInteger::multiply).get();
+			result = IntStream.rangeClosed(2, (int) value)
+					.parallel()
+					.mapToObj(BigInteger::valueOf)
+					.reduce(BigInteger::multiply)
+					.get();
 		}
 	}
 }

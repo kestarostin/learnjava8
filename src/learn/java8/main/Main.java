@@ -1,5 +1,7 @@
 package learn.java8.main;
 
+import learn.java8.util.stream.StreamExplorer;
+
 /**
  * Class Main
  * <p>
@@ -9,6 +11,12 @@ package learn.java8.main;
 public class Main {
 
     public static void main(String[] args) {
+
+	    /**
+	     *
+	     * LAMBDA EXPRESSIONS:
+	     *
+	     */
 
 	    /**
 	     * Printing
@@ -51,5 +59,20 @@ public class Main {
 	     * Lambda expression with final external variables
 	     */
 	    //LambdaExplorer.printCollectionElementsWithLambdaExternalVariables();
+
+
+	    /**
+	     *
+	     * STREAM API:
+	     *
+	     */
+
+	    /**
+	     * Printing
+	     */
+	    // Common printing
+	    StreamExplorer.printFirstElement();
+	    // Using stream API
+	    StreamExplorer.printFirstElementWithStreams();
     }
 }
