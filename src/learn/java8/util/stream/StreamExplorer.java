@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * Class StreamExplorer
+ * Class StreamExplorer.
  * <p>
  * Date: 11.07.2016
  * Time: 17:59
