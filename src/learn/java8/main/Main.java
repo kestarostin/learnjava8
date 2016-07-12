@@ -1,7 +1,5 @@
 package learn.java8.main;
 
-import learn.java8.util.stream.StreamExplorer;
-
 /**
  * Class Main
  * <p>
@@ -71,8 +69,16 @@ public class Main {
 	     * Printing
 	     */
 	    // Common printing
-	    StreamExplorer.printFirstElement();
+	    //StreamExplorer.printFirstElement();
 	    // Using stream API
-	    StreamExplorer.printFirstElementWithStreams();
+	    //StreamExplorer.printFirstElementWithStreams();
+	    // Filtered printing
+	    //StreamExplorer.printFirstElementFiltered();
+	    // Filtered printing with optimized order
+	    //StreamExplorer.printFirstElementFilteredOptimized();
+	    // Print all elements filtered and  collected as one string
+	    //StreamExplorer.printAllElementsFiltered();
+	    // Print all elements filtered in parallel
+	    //StreamExplorer.printAllElementsFilteredParallel();
     }
 }
