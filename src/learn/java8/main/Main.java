@@ -37,6 +37,8 @@ public class Main {
 	    //LambdaExplorer.sortCollectionElementsWithAnonymousClass();
 	    // Sorting with the lambda expressions
 	    //LambdaExplorer.sortCollectionElementsWithLambda();
+	    // Sorts a list of integers using method reference
+	    //LambdaExplorer.sortCollectionElementsWithLambdaMethodReference();
 		// Sorting with the lambda expressions and complex expression inside
 	    //LambdaExplorer.sortCollectionElementsWithLambdaComplexExpression();
 

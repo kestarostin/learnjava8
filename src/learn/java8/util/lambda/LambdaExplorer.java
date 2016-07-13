@@ -111,6 +111,19 @@ public class LambdaExplorer {
 	}
 
 	/**
+	 * Sorts a list of integers using method reference.
+	 */
+	public static void sortCollectionElementsWithLambdaMethodReference() {
+		System.out.println("Sorting with the lambda expressions:");
+		// Initialization
+		List<Integer> list = Arrays.asList(5, 3, 4, 1, 2);
+		// Sorting
+		list.sort(Integer::compareTo);
+		// Printing
+		System.out.println(list);
+	}
+
+	/**
 	 * Sorts an array of strings by length with lambda expressions. Implementation for the several expressions inside.
 	 */
 	public static void sortCollectionElementsWithLambdaComplexExpression() {
