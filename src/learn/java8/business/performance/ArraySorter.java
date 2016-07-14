@@ -113,8 +113,7 @@ public class ArraySorter extends AbstractExecutor {
 
 		// Sorting and the average
 		result = BigInteger.valueOf((long) list
-				.stream()
-				.parallel()
+				.parallelStream()
 				.sorted()
 				.mapToLong((l) -> (l))
 				.average()
