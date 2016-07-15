@@ -44,26 +44,6 @@ public class StreamExplorer {
     }
 
 	/**
-	 * Filtered printing in non optimized order
-	 */
-	public static void printFirstElementFiltered() {
-		Stream.of(STRING_NUMBERS_ARRAY)
-				.sorted((s1, s2) -> {
-					System.out.printf("sort: %s; %s\n", s1, s2);
-					return s1.compareTo(s2);
-				})
-				.filter(s -> {
-					System.out.println("filter: " + s);
-					return s.startsWith("O");
-				})
-				.map(s -> {
-					System.out.println("map: " + s);
-					return s.toLowerCase();
-				})
-				.forEach(s -> System.out.println("forEach: " + s));
-	}
-
-	/**
 	 * Printing the elements of the array with streams except the first one
 	 */
 	public static void printElementsExceptTheFirstOne() {
@@ -93,6 +73,26 @@ public class StreamExplorer {
 	}
 
 	/**
+	 * Filtered printing in non optimized order
+	 */
+	public static void printFirstElementFiltered() {
+		Stream.of(STRING_NUMBERS_ARRAY)
+				.sorted((s1, s2) -> {
+					System.out.printf("sort: %s; %s\n", s1, s2);
+					return s1.compareTo(s2);
+				})
+				.filter(s -> {
+					System.out.println("filter: " + s);
+					return s.startsWith("O");
+				})
+				.map(s -> {
+					System.out.println("map: " + s);
+					return s.toLowerCase();
+				})
+				.forEach(s -> System.out.println("forEach: " + s));
+	}
+
+	/**
 	 * Filtered printing in optimized order
 	 */
 	public static void printFirstElementFilteredOptimized() {
@@ -119,6 +119,16 @@ public class StreamExplorer {
 		System.out.println(Stream.of(STRING_NUMBERS_ARRAY)
 				.filter(s -> s.length() >= 4)
 				.collect(Collectors.joining(" & ", "In this collection elements ", " have length bigger than 4.")));
+	}
+
+	/**
+	 * Print the average using collector
+	 */
+	public static void printAllElementsWithCollector() {
+		System.out.println("The average is: " +
+				Stream.of(1, 2, 3, 4, 5)
+				.collect(Collectors.averagingInt(i -> i))
+		);
 	}
 
 	/**
