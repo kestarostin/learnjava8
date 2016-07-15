@@ -1,10 +1,13 @@
 package learn.java8.util.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * Class StreamExplorer.
@@ -126,9 +129,34 @@ public class StreamExplorer {
 	 */
 	public static void printAllElementsWithCollector() {
 		System.out.println("The average is: " +
-				Stream.of(1, 2, 3, 4, 5)
-				.collect(Collectors.averagingInt(i -> i))
+						Stream.of(1, 2, 3, 4, 5)
+								.collect(Collectors.averagingInt(i -> i))
 		);
+	}
+
+	/**
+	 * Create stream of streams
+	 */
+	public static void createStreamOfStreams() {
+		List<Stream<Integer>> listOfStreamOfInts = new ArrayList<>();
+
+		for (int i = 0; i < 3; i++) {
+			IntStream intStreamOf10Ints = IntStream.
+					iterate(0, k -> k + 1)
+					.limit(3);
+
+			Stream<Integer> genericStreamOf10Ints = StreamSupport.stream(intStreamOf10Ints.spliterator(), true);
+			listOfStreamOfInts.add(genericStreamOf10Ints);
+		}
+
+		Stream<Stream<Integer>> streamOfStreamOfInts = listOfStreamOfInts.stream();
+
+		Stream<Integer> streamOfInts = streamOfStreamOfInts
+				.reduce(Stream.empty(), Stream::concat);
+
+		System.out.println(streamOfInts
+				.map(String::valueOf)
+				.collect(Collectors.joining(", ")));
 	}
 
 	/**

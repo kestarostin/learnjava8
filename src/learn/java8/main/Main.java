@@ -90,5 +90,7 @@ public class Main {
 	    //StreamExplorer.printAllElementsWithCollector();
 	    // Print all elements filtered in parallel
 	    //StreamExplorer.printAllElementsFilteredParallel();
+	    // Create stream of streams
+	    //StreamExplorer.createStreamOfStreams();
     }
 }
