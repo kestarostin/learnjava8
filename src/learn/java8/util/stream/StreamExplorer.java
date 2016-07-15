@@ -2,6 +2,7 @@ package learn.java8.util.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -78,6 +79,17 @@ public class StreamExplorer {
 		Stream.of(STRING_NUMBERS_ARRAY)
 				.limit(STRING_NUMBERS_ARRAY.length - 1)
 				.forEach(s -> System.out.println("forEach: " + s));
+	}
+
+	/**
+	 * Printing the array length
+	 */
+	public static void printLength() {
+		Predicate<String> predicate = s -> s.startsWith("T");
+		Long l = Stream.of(STRING_NUMBERS_ARRAY)
+				//.filter(predicate)
+				.count();
+		System.out.println("Array length: " + l);
 	}
 
 	/**

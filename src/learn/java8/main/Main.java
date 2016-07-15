@@ -76,6 +76,12 @@ public class Main {
 	    //StreamExplorer.printFirstElementWithStreams();
 	    // Filtered printing
 	    //StreamExplorer.printFirstElementFiltered();
+	    // Printing the elements of the array with streams except the first one
+	    //StreamExplorer.printElementsExceptTheFirstOne();
+	    // Printing the elements of the array with streams except the last one
+	    //StreamExplorer.printElementsExceptTheLastOne();
+	    // Printing the array length
+	    //StreamExplorer.printLength();
 	    // Filtered printing with optimized order
 	    //StreamExplorer.printFirstElementFilteredOptimized();
 	    // Print all elements filtered and  collected as one string
