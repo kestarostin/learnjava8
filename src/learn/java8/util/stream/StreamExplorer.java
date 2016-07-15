@@ -63,6 +63,24 @@ public class StreamExplorer {
 	}
 
 	/**
+	 * Printing the elements of the array with streams except the first one
+	 */
+	public static void printElementsExceptTheFirstOne() {
+		Stream.of(STRING_NUMBERS_ARRAY)
+				.skip(1)
+				.forEach(s -> System.out.println("forEach: " + s));
+	}
+
+	/**
+	 * Printing the elements of the array with streams except the last one
+	 */
+	public static void printElementsExceptTheLastOne() {
+		Stream.of(STRING_NUMBERS_ARRAY)
+				.limit(STRING_NUMBERS_ARRAY.length - 1)
+				.forEach(s -> System.out.println("forEach: " + s));
+	}
+
+	/**
 	 * Filtered printing in optimized order
 	 */
 	public static void printFirstElementFilteredOptimized() {
