@@ -1,6 +1,8 @@
 package main.java.learn.java8.services;
 
 import learn.java8.util.OopsException;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -30,19 +32,27 @@ public class EntryServiceTest {
      * Set up.
      */
     @Before
-    public void before() {
+    public void before() throws OopsException {
         entry = new Entry(CalculationType.SORTER, 5000000L, 20);
+        entryService.createEntry(entry);
     }
 
     /**
      * Checks service method createEntry.
      */
     @Test
-    public void createEntityTest() {
-        try {
-            entryService.createEntry(entry);
-        } catch (OopsException e) {
-            e.printStackTrace();
-        }
+    public void loadEntryTest() throws OopsException {
+        Entry loadedEntry = entryService.loadEntry(entry.getId());
+        Assert.assertEquals(entry.getType(), loadedEntry.getType());
+        Assert.assertEquals(entry.getValue(), loadedEntry.getValue());
+        Assert.assertEquals(entry.getIterations(), loadedEntry.getIterations());
+    }
+
+    /**
+     * Clearing.
+     */
+    @After
+    public void after() throws OopsException {
+        entryService.deleteEntry(entry);
     }
 }

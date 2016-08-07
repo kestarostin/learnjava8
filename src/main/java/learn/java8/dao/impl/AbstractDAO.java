@@ -70,6 +70,6 @@ public abstract class AbstractDAO<T> {
 	 * @param t The object.
 	 */
 	public void delete(T t) {
-		em.remove(t);
+		em.remove(em.contains(t) ? t : em.merge(t));
 	}
 }
