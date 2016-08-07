@@ -9,14 +9,14 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:property-placeholder location="resources/cfg/local.db.properties"/>
+    <context:property-placeholder location="cfg/local.db.properties"/>
 
     <context:annotation-config/>
 
     <context:component-scan base-package="learn.java8" />
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="persistenceXmlLocation" value="classpath:/persistence.xml" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
         <property name="persistenceUnitName" value="learnjava8" />
         <property name="dataSource" ref="dataSource" />
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
