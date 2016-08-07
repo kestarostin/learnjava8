@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/*
 learnjava8.iml
-src/resources/cfg/local.db.properties
+resources/cfg/local.db.properties
 out
 target
