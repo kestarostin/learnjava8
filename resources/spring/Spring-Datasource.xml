@@ -9,6 +9,7 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- Create a file resources/cfg/local.db.properties and put here all the properties for DB connection-->
     <context:property-placeholder location="cfg/local.db.properties"/>
 
     <context:annotation-config/>
