@@ -1,5 +1,7 @@
 package learn.java8.dao.impl;
 
+import learn.java8.dao.interfaces.CommonDAO;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
@@ -12,7 +14,7 @@ import java.lang.reflect.ParameterizedType;
  *
  * @author Starostin Konstantin
  */
-public abstract class AbstractDAO<T> {
+public abstract class AbstractDAO<T> implements CommonDAO<T> {
 
 	/**
 	 * The type.

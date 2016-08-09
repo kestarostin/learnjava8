@@ -12,38 +12,7 @@ import java.util.List;
  *
  * @author Starostin Konstantin
  */
-public interface EntryDAO {
-
-	/**
-	 * Creates the entry.
-	 *
-	 * @param entry     The entry.
-	 * @return          The created entry.
-	 */
-	Entry create(Entry entry);
-
-	/**
-	 * Reads the entry by id.
-	 *
-	 * @param id    The id.
-	 * @return      The entry.
-	 */
-	Entry read(Long id);
-
-	/**
-	 * Updates the entry.
-	 *
-	 * @param entry     The entry.
-	 * @return          The entry.
-	 */
-	Entry update(Entry entry);
-
-	/**
-	 * Deletes the entry.
-	 *
-	 * @param entry    The entry.
-	 */
-	void delete(Entry entry);
+public interface EntryDAO extends CommonDAO<Entry> {
 
 	/**
 	 * Gets all entries.
