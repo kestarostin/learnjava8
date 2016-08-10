@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Starostin Konstantin
  */
-public interface ResultDAO extends CommonDAO<Result> {
+public interface ResultDAO {
 
 	/**
 	 * Gets all results.

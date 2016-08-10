@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Starostin Konstantin
  */
-public interface EntryDAO extends CommonDAO<Entry> {
+public interface EntryDAO {
 
 	/**
 	 * Gets all entries.
