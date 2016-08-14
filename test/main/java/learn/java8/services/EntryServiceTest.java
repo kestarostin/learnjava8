@@ -20,7 +20,7 @@ import learn.java8.services.interfaces.EntryService;
  */
 public class EntryServiceTest {
 
-    private static ApplicationContext context = new ClassPathXmlApplicationContext("spring/Spring-Datasource.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-datasource.xml");
     private static EntryService entryService = (EntryService) context.getBean("entryService");
 
     /**

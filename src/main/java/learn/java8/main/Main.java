@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
 
-    private static ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"spring/Spring-Datasource.xml"});
+    private static ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"spring/spring-datasource.xml"});
     private static EntryService entryService = (EntryService) context.getBean("entryService");
 
     public static void main(String[] args) {
