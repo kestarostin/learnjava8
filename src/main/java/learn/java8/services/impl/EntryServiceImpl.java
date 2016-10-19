@@ -126,6 +126,7 @@ public class EntryServiceImpl implements EntryService {
     /**
      * Deletes all entries.
      */
+    @Transactional
     public void deleteAllEntries() {
         entryDAO.deleteAllEntries();
     }

@@ -126,6 +126,7 @@ public class ResultServiceImpl implements ResultService {
     /**
      * Deletes all results.
      */
+    @Transactional
     public void deleteAllResults() {
         resultDAO.deleteAllResults();
     }
